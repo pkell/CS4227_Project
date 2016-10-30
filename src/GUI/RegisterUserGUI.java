@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-public class RegisterUserGUI implements  ActionListener
+public class RegisterUserGUI extends Panel implements  ActionListener
 {
     JPanel buttonPanel;
     JButton cancelButton, registerUserButton;
@@ -24,18 +24,21 @@ public class RegisterUserGUI implements  ActionListener
 	JTextField userField,passField, emailField, addressField;
 	static JFrame frame = new JFrame("Register Product Screen");
 
+	public RegisterUserGUI(){
+		this.panel = new JPanel();
+		createAndShowGUI();
+	}
     public JPanel createContentPane()
 	{
         //Make bottom JPanel to place buttonPanel on
-        JPanel totalGUI = new JPanel();
-        totalGUI.setLayout(null);
+        this.panel.setLayout(null);
 
         //Make Button Panel
         buttonPanel = new JPanel();
         buttonPanel.setLayout(null);
         buttonPanel.setLocation(10, 10);
         buttonPanel.setSize(295, 485);
-        totalGUI.add(buttonPanel);
+        this.panel.add(buttonPanel);
 
 		//Make Labels
         userLabel = new JLabel("Username:");
@@ -92,8 +95,8 @@ public class RegisterUserGUI implements  ActionListener
         registerUserButton.addActionListener(this);
         buttonPanel.add(registerUserButton);
         
-        totalGUI.setVisible(true);
-        return totalGUI;
+        this.panel.setVisible(true);
+        return this.panel;
     }
 
     public void actionPerformed(ActionEvent e)
@@ -122,7 +125,7 @@ public class RegisterUserGUI implements  ActionListener
     		I_User user = userFactory.createUser("customer");
     		
     		int id = 1;
-    		int accesslvl =1;
+    		int accesslvl = 1;
     		
     		try{
     			
@@ -155,17 +158,16 @@ public class RegisterUserGUI implements  ActionListener
     		user.setPassword(pass);
     		user.setEmail(email);
     		user.setAddress(address);
-    		user.setID(id);
+    		user.setID(Integer.toString(id));
     		
         }
         
     }
 
-    private static void createAndShowGUI()
+    private void createAndShowGUI()
 	{
         //Create and set up the content pane.
-    	RegisterUserGUI window = new RegisterUserGUI();
-        frame.setContentPane(window.createContentPane());
+        frame.setContentPane(this.createContentPane());
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(305, 250);
@@ -173,15 +175,17 @@ public class RegisterUserGUI implements  ActionListener
         frame.setVisible(true);
     }
 
-    public static void start()
-	{
-        SwingUtilities.invokeLater(new Runnable() 
-		{
-            public void run() 
-			{
-                createAndShowGUI();
-            }
-        });
+    
+    @Override
+    public JPanel sendToWindow()
+    { 
+        return this.panel;
+    }
+	
+    @Override
+    public void setPanelManager(PanelManager pm)
+    {
+	this.panelMgr = pm;
     }
     
    

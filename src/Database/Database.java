@@ -72,4 +72,15 @@ public class Database implements I_Database {
         }
         return null;
 	}
+	
+	public boolean registerUser(String userName, String accesslvl, String pass, String email, String address) throws SQLException{
+		Insert in = new Insert("users");
+		in.addValue(userName, "String");
+		in.addValue(accesslvl, "String");
+		in.addValue(pass, "String");
+		in.addValue(email, "String");
+		in.addValue(address, "String");
+		//in.executeStatement(SQL, con);
+		return true;
+	}
 }

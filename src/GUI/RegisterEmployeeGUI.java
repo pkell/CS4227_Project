@@ -13,7 +13,8 @@ import javax.swing.*;
 public class RegisterEmployeeGUI implements  ActionListener
 {
 	String [] employeeTypes = {"manager", "logisticsStaff" , "wareHouseStaff"};
-    
+	private PanelManager pm;
+	private Helper help = Helper.getInstance();
 	JPanel buttonPanel;
     JButton cancelButton, registerUserButton;
 	JLabel TypeLabel,userLabel,passLabel, emailLabel, addressLabel;

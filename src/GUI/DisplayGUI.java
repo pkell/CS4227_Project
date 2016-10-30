@@ -7,8 +7,6 @@ import javax.swing.*;
 
 public class DisplayGUI extends Panel implements ActionListener// extends JFrame implements ActionListener
 {
-	private PanelManager pm;
-	private Helper help = Helper.getInstance();
 	JPanel buttonPanel;
 	JButton remaingModulesButton, viewResultsButton, exitButton;
 
@@ -38,21 +36,21 @@ public class DisplayGUI extends Panel implements ActionListener// extends JFrame
 			frame.setSize(405, 130);
 			frame.setVisible(true);
 		}
-		/*
+		
 		if(help.getUser().getaccesslvl().equals("2"))
 		{
 			JFrame frame = new JFrame("Warehouse Staff GUI");
 
 			//Create and set up the content pane.
-			DisplayGUI window = new DisplayGUI();
-			frame.setContentPane(window.createContentPane(accessLevel));
+			//DisplayGUI window = new DisplayGUI();
+			frame.setContentPane(this.createContentPane());
 
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setLocationRelativeTo(null);
 			frame.setSize(405, 130);
 			frame.setVisible(true);
 		}
-		
+		/*
 		if (accessLevel == 3)
 		{
 			JFrame frame = new JFrame("Logistics Staff GUI");
@@ -211,7 +209,7 @@ public class DisplayGUI extends Panel implements ActionListener// extends JFrame
     @Override
     public void setPanelManager(PanelManager pm)
     {
-	this.pm = pm;
+	this.panelMgr = pm;
     }
 
 

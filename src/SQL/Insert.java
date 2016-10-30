@@ -30,11 +30,6 @@ public class Insert {
 
     public void addValue(String value , String type){
 
-
-        System.out.println(first);
-        System.out.println(second);
-
-
             Values.add(value);
             Types.add(type);
 
@@ -65,14 +60,12 @@ public class Insert {
         return Result;
     }
 
-    public void executeStatement(String SQL){
+    public void executeStatement(String SQL, Connection mycon){
 
 
 
 
         try {
-        con = new Connect();
-        mycon =  con.getconnection();
         mystat = mycon.createStatement();
     }
     catch (Exception exc) {

@@ -21,13 +21,5 @@ public class Main {
         PanelFactory panelFac = new PanelFactory();
         PanelManager panelMgr = new PanelManager(panelFac);
         panelMgr.registerObserver(window);
-		//LogInScreenGUI.main(null);
-		
-		
-		
-		//display GUI for different Java.user access
-		//do stuff from different GUI
-			//log out 
-		
 	}
 }

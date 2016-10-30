@@ -16,4 +16,5 @@ public interface I_Database {
 	public ArrayList<I_Product> getItems(String identifier);
 	public boolean canUserLogin(String user, String password) throws SQLException;
 	public I_User getUserDetails(String username) throws SQLException;
+	public boolean registerUser(String userName, String accesslvl, String pass, String email, String address) throws SQLException;
 }

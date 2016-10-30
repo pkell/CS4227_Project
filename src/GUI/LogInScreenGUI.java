@@ -1,18 +1,11 @@
 package GUI;
 
-import Java.Connect;
-import SQL.Select;
-
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.sql.*;
-import Database.DatabaseAccess;
 
 public class LogInScreenGUI extends Panel implements  ActionListener 
 {
-	private PanelManager pm;
-	Helper help = Helper.getInstance();
     JPanel buttonPanel;
     JButton exitButton, logInButton, registerButton;
 	JLabel userNameLabel, passwordLabel;
@@ -24,10 +17,9 @@ public class LogInScreenGUI extends Panel implements  ActionListener
 		this.panel = new JPanel();
 		createAndShowGUI();
 	}
+	
     public JPanel createContentPane()
 	{
-        //Make bottom JPanel to place buttonPanel on
-        //JPanel totalGUI = new JPanel();
         panel.setLayout(null);
 
         //Make Button Panel
@@ -93,7 +85,7 @@ public class LogInScreenGUI extends Panel implements  ActionListener
         
         else if(e.getSource() == registerButton)
         {
-			RegisterUserGUI.start();
+        	panelMgr.getPanelFromFactory(3);
         }
 		
         else if(e.getSource() == logInButton)
@@ -108,7 +100,7 @@ public class LogInScreenGUI extends Panel implements  ActionListener
     			if(help.canUserLogin(userName, password)){
     				help.getUserDetails(userName);
     				frame.setVisible(false);
-    				pm.getPanelFromFactory(2);
+    				panelMgr.getPanelFromFactory(2);
     				}
     			}
 
@@ -144,6 +136,6 @@ public class LogInScreenGUI extends Panel implements  ActionListener
     @Override
     public void setPanelManager(PanelManager pm)
     {
-	this.pm = pm;
+	this.panelMgr = pm;
     }
 }

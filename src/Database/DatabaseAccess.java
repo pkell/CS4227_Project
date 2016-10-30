@@ -55,4 +55,9 @@ public class DatabaseAccess implements I_Database {
     public I_User getUserDetails(String username)throws SQLException{
     	return dbconn.getUserDetails(username);
     }
+    
+    @Override
+    public boolean registerUser(String userName, String accesslvl, String pass, String email, String address) throws SQLException {
+    	return dbconn.registerUser(userName, accesslvl, pass, email, address);
+    }
 }

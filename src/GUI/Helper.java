@@ -31,4 +31,8 @@ public class Helper {
 		return user;
 	}
 	
+	public void logoutUser(){
+		user = null;
+	}
+	
 }

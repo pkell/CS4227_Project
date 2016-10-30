@@ -21,6 +21,10 @@ public class PanelFactory {
                 panel = new DisplayGUI();
                 panel.setPanelManager(pm);
                 break;
+            case 3:
+                panel = new RegisterUserGUI();
+                panel.setPanelManager(pm);
+                break;
         }
         return panel;
     }
